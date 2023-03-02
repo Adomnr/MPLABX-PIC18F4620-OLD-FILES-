@@ -1,0 +1,312 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
+                                                                                               Sun Dec 19 13:10:30 2021
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
+     1                           	processor	18F2220
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+     9                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    10  0000                     _LATBbits	set	3978
+    11  0000                     _LATCbits	set	3979
+    12  0000                     _OSCCON	set	4051
+    13  0000                     _TRISB	set	3987
+    14  0000                     _TRISC	set	3988
+    15                           
+    16 ;;
+    17 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+    18 ;;
+    19 ;; *************** function _main *****************
+    20 ;; Defined at:
+    21 ;;		line 11 in file "main.c"
+    22 ;; Parameters:    Size  Location     Type
+    23 ;;		None
+    24 ;; Auto vars:     Size  Location     Type
+    25 ;;  countDelay      2    3[COMRAM] int 
+    26 ;;  countDelay      2    1[COMRAM] int 
+    27 ;; Return value:  Size  Location     Type
+    28 ;;		None               void
+    29 ;; Registers used:
+    30 ;;		wreg, status,2, status,0
+    31 ;; Tracked objects:
+    32 ;;		On entry : 0/0
+    33 ;;		On exit  : 0/0
+    34 ;;		Unchanged: 0/0
+    35 ;; Data sizes:     COMRAM   BANK0   BANK1
+    36 ;;      Params:         0       0       0
+    37 ;;      Locals:         4       0       0
+    38 ;;      Temps:          1       0       0
+    39 ;;      Totals:         5       0       0
+    40 ;;Total ram usage:        5 bytes
+    41 ;; This function calls:
+    42 ;;		Nothing
+    43 ;; This function is called by:
+    44 ;;		Startup code after reset
+    45 ;; This function uses a non-reentrant model
+    46 ;;
+    47                           
+    48                           	psect	text0
+    49  000F70                     __ptext0:
+    50                           	opt stack 0
+    51  000F70                     _main:
+    52                           	opt stack 31
+    53                           
+    54                           ;main.c: 12: TRISB = 0;
+    55                           
+    56                           ;incstack = 0
+    57  000F70  0E00               	movlw	0
+    58  000F72  6E93               	movwf	3987,c	;volatile
+    59                           
+    60                           ;main.c: 13: TRISC = 0;
+    61  000F74  0E00               	movlw	0
+    62  000F76  6E94               	movwf	3988,c	;volatile
+    63                           
+    64                           ;main.c: 14: OSCCON = 0x76;
+    65  000F78  0E76               	movlw	118
+    66  000F7A  6ED3               	movwf	4051,c	;volatile
+    67  000F7C  D000               	goto	l606
+    68  000F7E                     l606:
+    69                           
+    70                           ;main.c: 16: {
+    71                           ;main.c: 17: LATBbits.LATB0=~LATBbits.LATB0;
+    72  000F7E  708A               	btg	3978,0,c	;volatile
+    73                           
+    74                           ;main.c: 18: LATBbits.LATB1=~LATBbits.LATB1;
+    75  000F80  728A               	btg	3978,1,c	;volatile
+    76                           
+    77                           ;main.c: 19: LATBbits.LATB2=~LATBbits.LATB2;
+    78  000F82  748A               	btg	3978,2,c	;volatile
+    79                           
+    80                           ;main.c: 20: LATCbits.LATC0=~LATCbits.LATC0;
+    81  000F84  708B               	btg	3979,0,c	;volatile
+    82                           
+    83                           ;main.c: 21: LATCbits.LATC1=~LATCbits.LATC1;
+    84  000F86  728B               	btg	3979,1,c	;volatile
+    85                           
+    86                           ;main.c: 22: for (int countDelay=0; countDelay <20; countDelay ++)_delay((unsigned long)
+      +                          ((50)*(8000000/4000.0)));
+    87  000F88  0E00               	movlw	0
+    88  000F8A  6E03               	movwf	main@countDelay+1,c
+    89  000F8C  0E00               	movlw	0
+    90  000F8E  6E02               	movwf	main@countDelay,c
+    91  000F90  BE03               	btfsc	main@countDelay+1,7,c
+    92  000F92  D008               	goto	l620
+    93  000F94  5003               	movf	main@countDelay+1,w,c
+    94  000F96  E114               	bnz	l17
+    95  000F98  0E14               	movlw	20
+    96  000F9A  5C02               	subwf	main@countDelay,w,c
+    97  000F9C  B0D8               	btfsc	status,0,c
+    98  000F9E  D010               	goto	l17
+    99  000FA0  D001               	goto	l620
+   100  000FA2  D00E               	goto	l17
+   101  000FA4                     l620:
+   102  000FA4  0E82               	movlw	130
+   103  000FA6  6E01               	movwf	??_main& (0+255),c
+   104  000FA8  0EDE               	movlw	222
+   105  000FAA                     u57:
+   106  000FAA  2EE8               	decfsz	wreg,f,c
+   107  000FAC  D7FE               	goto	u57
+   108  000FAE  2E01               	decfsz	??_main& (0+255),f,c
+   109  000FB0  D7FC               	goto	u57
+   110  000FB2  4A02               	infsnz	main@countDelay,f,c
+   111  000FB4  2A03               	incf	main@countDelay+1,f,c
+   112  000FB6  BE03               	btfsc	main@countDelay+1,7,c
+   113  000FB8  D7F5               	goto	l620
+   114  000FBA  5003               	movf	main@countDelay+1,w,c
+   115  000FBC  E101               	bnz	u20
+   116  000FBE  D7EC               	goto	L1
+   117  000FC0                     u20:
+   118  000FC0                     l17:
+   119                           
+   120                           ;main.c: 23: LATBbits.LATB0=~LATBbits.LATB0;
+   121  000FC0  708A               	btg	3978,0,c	;volatile
+   122                           
+   123                           ;main.c: 24: LATBbits.LATB1=~LATBbits.LATB1;
+   124  000FC2  728A               	btg	3978,1,c	;volatile
+   125                           
+   126                           ;main.c: 25: LATBbits.LATB2=~LATBbits.LATB2;
+   127  000FC4  748A               	btg	3978,2,c	;volatile
+   128                           
+   129                           ;main.c: 26: LATCbits.LATC0=~LATCbits.LATC0;
+   130  000FC6  708B               	btg	3979,0,c	;volatile
+   131                           
+   132                           ;main.c: 27: LATCbits.LATC1=~LATCbits.LATC1;
+   133  000FC8  728B               	btg	3979,1,c	;volatile
+   134                           
+   135                           ;main.c: 28: for (int countDelay=0; countDelay <40; countDelay ++)_delay((unsigned long)
+      +                          ((50)*(8000000/4000.0)));
+   136  000FCA  0E00               	movlw	0
+   137  000FCC  6E05               	movwf	main@countDelay_198+1,c
+   138  000FCE  0E00               	movlw	0
+   139  000FD0  6E04               	movwf	main@countDelay_198,c
+   140  000FD2                     l626:
+   141  000FD2  BE05               	btfsc	main@countDelay_198+1,7,c
+   142  000FD4  D008               	goto	l630
+   143  000FD6  5005               	movf	main@countDelay_198+1,w,c
+   144  000FD8  E1D2               	bnz	l606
+   145  000FDA  0E28               	movlw	40
+   146  000FDC  5C04               	subwf	main@countDelay_198,w,c
+   147  000FDE  B0D8               	btfsc	status,0,c
+   148  000FE0  D7CE               	goto	l606
+   149  000FE2  D001               	goto	l630
+   150  000FE4  D7CC               	goto	l606
+   151  000FE6                     l630:
+   152  000FE6  0E82               	movlw	130
+   153  000FE8  6E01               	movwf	??_main& (0+255),c
+   154  000FEA  0EDE               	movlw	222
+   155  000FEC                     u67:
+   156  000FEC  2EE8               	decfsz	wreg,f,c
+   157  000FEE  D7FE               	goto	u67
+   158  000FF0  2E01               	decfsz	??_main& (0+255),f,c
+   159  000FF2  D7FC               	goto	u67
+   160  000FF4  4A04               	infsnz	main@countDelay_198,f,c
+   161  000FF6  2A05               	incf	main@countDelay_198+1,f,c
+   162  000FF8  D7EC               	goto	l626
+   163  000FFA  D7C1               	goto	l606
+   164                           
+   165                           ;main.c: 29: }
+   166                           ;main.c: 30: return;
+   167  000FFC  EF00  F000         	goto	start
+   168  001000                     __end_of_main:
+   169                           	opt stack 0
+   170  0000                     wreg	equ	0xFE8
+   171                           status	equ	0xFD8
+   172                           
+   173                           	psect	cinit
+   174  000F6A                     __pcinit:
+   175                           	opt stack 0
+   176  000F6A                     start_initialization:
+   177                           	opt stack 0
+   178  000F6A                     __initialization:
+   179                           	opt stack 0
+   180  000F6A                     end_of_initialization:
+   181                           	opt stack 0
+   182  000F6A                     __end_of__initialization:
+   183                           	opt stack 0
+   184  000F6A  0100               	movlb	0
+   185  000F6C  EFB8  F007         	goto	_main	;jump to C main() function
+   186                           wreg	equ	0xFE8
+   187                           status	equ	0xFD8
+   188                           
+   189                           	psect	cstackCOMRAM
+   190  000001                     __pcstackCOMRAM:
+   191                           	opt stack 0
+   192  000001                     ??_main:
+   193                           
+   194                           ; 0 bytes @ 0x0
+   195  000001                     	ds	1
+   196  000002                     main@countDelay:
+   197                           	opt stack 0
+   198                           
+   199                           ; 2 bytes @ 0x1
+   200  000002                     	ds	2
+   201  000004                     main@countDelay_198:
+   202                           	opt stack 0
+   203                           
+   204                           ; 2 bytes @ 0x3
+   205  000004                     	ds	2
+   206                           wreg	equ	0xFE8
+   207                           status	equ	0xFD8
+   208                           wreg	equ	0xFE8
+   209                           status	equ	0xFD8
+   210                           
+   211                           	psect	rparam
+   212  0000                     wreg	equ	0xFE8
+   213                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127      5       5
+    BANK0           128      0       0
+    BANK1           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 5     5      0      60
+                                              0 COMRAM     5     5      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           7F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              7F      5       5       1        3.9%
+STACK                0      0       0       2        0.0%
+BITBANK0            80      0       0       3        0.0%
+BANK0               80      0       0       4        0.0%
+BITBANK1           100      0       0       5        0.0%
+BANK1              100      0       0       6        0.0%
+ABS                  0      0       0       7        0.0%
+BIGRAM             1FF      0       0       8        0.0%
+DATA                 0      0       0       9        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
+Symbol Table                                                                                   Sun Dec 19 13:10:30 2021
+
+                     l17 0FC0                       u20 0FC0                       u57 0FAA  
+                     u67 0FEC             __CFG_CP0$OFF 000000             __CFG_CP1$OFF 000000  
+            __CFG_OSC$RC 000000              __CFG_LVP$ON 000000                      l620 0FA4  
+                    l630 0FE6                      l606 0F7E                      l626 0FD2  
+           __CFG_CPB$OFF 000000             __CFG_CPD$OFF 000000             __CFG_BOR$OFF 000000  
+           __CFG_BORV$20 000000                      wreg 000FE8             __CFG_WDT$OFF 000000  
+           __CFG_STVR$ON 000000                     _main 0F70            __CFG_PBAD$ANA 000000  
+                   start 0000            __CFG_FSCM$OFF 000000            __CFG_IESO$OFF 000000  
+           ___param_bank 000010           __CFG_CCP2MX$ON 000000                    ?_main 0001  
+                  _TRISB 000F93                    _TRISC 000F94            __CFG_PWRT$OFF 000000  
+          __CFG_WRT0$OFF 000000            __CFG_WRT1$OFF 000000           __CFG_EBTR0$OFF 000000  
+         __CFG_EBTR1$OFF 000000            __CFG_WRTB$OFF 000000            __CFG_WRTC$OFF 000000  
+          __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000                    status 000FD8  
+         __CFG_MCLRE$OFF 000000          __initialization 0F6A             __end_of_main 1000  
+                 ??_main 0001            __activetblptr 000000                   _OSCCON 000FD3  
+             __accesstop 0080  __end_of__initialization 0F6A            ___rparam_used 000001  
+         __pcstackCOMRAM 0001           main@countDelay 0002                  __Hparam 0000  
+                __Lparam 0000                  __pcinit 0F6A                  __ramtop 0200  
+                __ptext0 0F70     end_of_initialization 0F6A      start_initialization 0F6A  
+     main@countDelay_198 0004                 _LATBbits 000F8A                 _LATCbits 000F8B  
+       __CFG_WDTPS$32768 000000                 __Hrparam 0000                 __Lrparam 0000  
+          __size_of_main 0090  
