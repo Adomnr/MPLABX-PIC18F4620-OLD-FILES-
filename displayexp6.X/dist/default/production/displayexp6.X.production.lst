@@ -1,0 +1,1299 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
+                                                                                               Fri Mar 18 12:09:16 2022
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
+     1                           	processor	18F2220
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    21                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    22                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    23  0000                     _LATBbits	set	3978
+    24  0000                     _OSCCON	set	4051
+    25  0000                     _PORTB	set	3969
+    26  0000                     _TRISB	set	3987
+    27  0000                     _TRISBbits	set	3987
+    28                           
+    29                           	psect	smallconst
+    30  000200                     __psmallconst:
+    31                           	opt stack 0
+    32  000200  00                 	db	0
+    33  000201                     STR_1:
+    34  000201  55                 	db	85	;'U'
+    35  000202  62                 	db	98	;'b'
+    36  000203  61                 	db	97	;'a'
+    37  000204  69                 	db	105	;'i'
+    38  000205  64                 	db	100	;'d'
+    39  000206  2D                 	db	45
+    40  000207  75                 	db	117	;'u'
+    41  000208  72                 	db	114	;'r'
+    42  000209  2D                 	db	45
+    43  00020A  52                 	db	82	;'R'
+    44  00020B  65                 	db	101	;'e'
+    45  00020C  68                 	db	104	;'h'
+    46  00020D  6D                 	db	109	;'m'
+    47  00020E  61                 	db	97	;'a'
+    48  00020F  6E                 	db	110	;'n'
+    49  000210  00                 	db	0
+    50  000211                     STR_2:
+    51  000211  31                 	db	49	;'1'
+    52  000212  39                 	db	57	;'9'
+    53  000213  2D                 	db	45
+    54  000214  45                 	db	69	;'E'
+    55  000215  45                 	db	69	;'E'
+    56  000216  2D                 	db	45
+    57  000217  31                 	db	49	;'1'
+    58  000218  30                 	db	48	;'0'
+    59  000219  00                 	db	0
+    60                           
+    61                           ; #config settings
+    62  00021A  00                 	db	0	; dummy byte at the end
+    63  0000                     
+    64                           	psect	cinit
+    65  0004A8                     __pcinit:
+    66                           	opt stack 0
+    67  0004A8                     start_initialization:
+    68                           	opt stack 0
+    69  0004A8                     __initialization:
+    70                           	opt stack 0
+    71  0004A8                     end_of_initialization:
+    72                           	opt stack 0
+    73  0004A8                     __end_of__initialization:
+    74                           	opt stack 0
+    75  0004A8  0E00               	movlw	low (__Lsmallconst shr (0+16))
+    76  0004AA  6EF8               	movwf	tblptru,c
+    77  0004AC  0E02               	movlw	high __Lsmallconst
+    78  0004AE  6EF7               	movwf	tblptrh,c
+    79  0004B0  0100               	movlb	0
+    80  0004B2  EF0D  F002         	goto	_main	;jump to C main() function
+    81                           tblptru	equ	0xFF8
+    82                           tblptrh	equ	0xFF7
+    83                           
+    84                           	psect	cstackCOMRAM
+    85  000001                     __pcstackCOMRAM:
+    86                           	opt stack 0
+    87  000001                     ??_Delay10KTCYx:
+    88  000001                     Delay10TCYx@unit:
+    89                           	opt stack 0
+    90  000001                     Delay1KTCYx@unit:
+    91                           	opt stack 0
+    92                           
+    93                           ; 1 bytes @ 0x0
+    94  000001                     	ds	1
+    95  000002                     ??_SetDDRamAddr:
+    96  000002                     WriteCmdXLCD@cmd:
+    97                           	opt stack 0
+    98  000002                     WriteDataXLCD@data:
+    99                           	opt stack 0
+   100  000002                     Delay10KTCYx@unit:
+   101                           	opt stack 0
+   102                           
+   103                           ; 1 bytes @ 0x1
+   104  000002                     	ds	1
+   105  000003                     putrsXLCD@buffer:
+   106                           	opt stack 0
+   107                           
+   108                           ; 2 bytes @ 0x2
+   109  000003                     	ds	2
+   110  000005                     SetDDRamAddr@DDaddr:
+   111                           	opt stack 0
+   112                           
+   113                           ; 1 bytes @ 0x4
+   114  000005                     	ds	1
+   115  000006                     OpenXLCD@lcdtype:
+   116                           	opt stack 0
+   117                           
+   118                           ; 1 bytes @ 0x5
+   119  000006                     	ds	1
+   120  000007                     tblptru	equ	0xFF8
+   121                           tblptrh	equ	0xFF7
+   122                           
+   123                           ; 0 bytes @ 0x6
+   124 ;;
+   125 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   126 ;;
+   127 ;; *************** function _main *****************
+   128 ;; Defined at:
+   129 ;;		line 12 in file "main.c"
+   130 ;; Parameters:    Size  Location     Type
+   131 ;;		None
+   132 ;; Auto vars:     Size  Location     Type
+   133 ;;		None
+   134 ;; Return value:  Size  Location     Type
+   135 ;;		None               void
+   136 ;; Registers used:
+   137 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   138 ;; Tracked objects:
+   139 ;;		On entry : 0/0
+   140 ;;		On exit  : 0/0
+   141 ;;		Unchanged: 0/0
+   142 ;; Data sizes:     COMRAM   BANK0   BANK1
+   143 ;;      Params:         0       0       0
+   144 ;;      Locals:         0       0       0
+   145 ;;      Temps:          0       0       0
+   146 ;;      Totals:         0       0       0
+   147 ;;Total ram usage:        0 bytes
+   148 ;; Hardware stack levels required when called:    5
+   149 ;; This function calls:
+   150 ;;		_SetDDRamAddr
+   151 ;;		_init_XLCD
+   152 ;;		_putrsXLCD
+   153 ;; This function is called by:
+   154 ;;		Startup code after reset
+   155 ;; This function uses a non-reentrant model
+   156 ;;
+   157                           
+   158                           	psect	text0
+   159  00041A                     __ptext0:
+   160                           	opt stack 0
+   161  00041A                     _main:
+   162                           	opt stack 26
+   163                           
+   164                           ;main.c: 14: OSCCON = 0x76;
+   165                           
+   166                           ;incstack = 0
+   167  00041A  0E76               	movlw	118
+   168  00041C  6ED3               	movwf	4051,c	;volatile
+   169                           
+   170                           ;main.c: 15: init_XLCD();
+   171  00041E  EC26  F002         	call	_init_XLCD	;wreg free
+   172                           
+   173                           ;main.c: 16: SetDDRamAddr(0x01);
+   174  000422  0E01               	movlw	1
+   175  000424  EC69  F001         	call	_SetDDRamAddr
+   176                           
+   177                           ;main.c: 17: putrsXLCD ("Ubaid-ur-Rehman");
+   178  000428  0E01               	movlw	low STR_1
+   179  00042A  6E03               	movwf	putrsXLCD@buffer,c
+   180  00042C  0E02               	movlw	high STR_1
+   181  00042E  6E04               	movwf	putrsXLCD@buffer+1,c
+   182  000430  ECF1  F001         	call	_putrsXLCD	;wreg free
+   183                           
+   184                           ;main.c: 18: SetDDRamAddr(0x41);
+   185  000434  0E41               	movlw	65
+   186  000436  EC69  F001         	call	_SetDDRamAddr
+   187                           
+   188                           ;main.c: 19: putrsXLCD("19-EE-10");
+   189  00043A  0E11               	movlw	low STR_2
+   190  00043C  6E03               	movwf	putrsXLCD@buffer,c
+   191  00043E  0E02               	movlw	high STR_2
+   192  000440  6E04               	movwf	putrsXLCD@buffer+1,c
+   193  000442  ECF1  F001         	call	_putrsXLCD	;wreg free
+   194  000446  D7FF               	goto	l22
+   195  000448  EF00  F000         	goto	start
+   196  00044C                     __end_of_main:
+   197                           	opt stack 0
+   198                           tblptru	equ	0xFF8
+   199                           tblptrh	equ	0xFF7
+   200                           
+   201 ;; *************** function _putrsXLCD *****************
+   202 ;; Defined at:
+   203 ;;		line 16 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\XLCD\putrxlcd.c"
+   204 ;; Parameters:    Size  Location     Type
+   205 ;;  buffer          2    2[COMRAM] PTR const unsigned char 
+   206 ;;		 -> STR_2(9), STR_1(16), 
+   207 ;; Auto vars:     Size  Location     Type
+   208 ;;		None
+   209 ;; Return value:  Size  Location     Type
+   210 ;;		None               void
+   211 ;; Registers used:
+   212 ;;		wreg, status,2, status,0, tblptrl, tblptrh, tblptru, cstack
+   213 ;; Tracked objects:
+   214 ;;		On entry : 0/0
+   215 ;;		On exit  : 0/0
+   216 ;;		Unchanged: 0/0
+   217 ;; Data sizes:     COMRAM   BANK0   BANK1
+   218 ;;      Params:         2       0       0
+   219 ;;      Locals:         0       0       0
+   220 ;;      Temps:          0       0       0
+   221 ;;      Totals:         2       0       0
+   222 ;;Total ram usage:        2 bytes
+   223 ;; Hardware stack levels used:    1
+   224 ;; Hardware stack levels required when called:    3
+   225 ;; This function calls:
+   226 ;;		_BusyXLCD
+   227 ;;		_WriteDataXLCD
+   228 ;; This function is called by:
+   229 ;;		_main
+   230 ;; This function uses a non-reentrant model
+   231 ;;
+   232                           
+   233                           	psect	text1
+   234  0003E2                     __ptext1:
+   235                           	opt stack 0
+   236  0003E2                     _putrsXLCD:
+   237                           	opt stack 27
+   238                           
+   239                           ;incstack = 0
+   240  0003E2  D011               	goto	l965
+   241  0003E4  D000               	goto	l959
+   242  0003E6                     l959:
+   243  0003E6  ECD3  F001         	call	_BusyXLCD	;wreg free
+   244  0003EA  0900               	iorlw	0
+   245  0003EC  A4D8               	btfss	status,2,c
+   246  0003EE  D7FB               	goto	l959
+   247  0003F0  C003  FFF6         	movff	putrsXLCD@buffer,tblptrl
+   248  0003F4  C004  FFF7         	movff	putrsXLCD@buffer+1,tblptrh
+   249  0003F8                     	if	0	;tblptru may be non-zero
+   250  0003F8                     	endif
+   251  0003F8                     	if	0	;tblptru may be non-zero
+   252  0003F8                     	endif
+   253  0003F8  0008               	tblrd		*
+   254  0003FA  50F5               	movf	tablat,w,c
+   255  0003FC  EC93  F001         	call	_WriteDataXLCD
+   256  000400  4A03               	infsnz	putrsXLCD@buffer,f,c
+   257  000402  2A04               	incf	putrsXLCD@buffer+1,f,c
+   258  000404  D000               	goto	l965
+   259  000406                     l965:
+   260  000406  C003  FFF6         	movff	putrsXLCD@buffer,tblptrl
+   261  00040A  C004  FFF7         	movff	putrsXLCD@buffer+1,tblptrh
+   262  00040E                     	if	0	;tblptru may be non-zero
+   263  00040E                     	endif
+   264  00040E                     	if	0	;tblptru may be non-zero
+   265  00040E                     	endif
+   266  00040E  0008               	tblrd		*
+   267  000410  50F5               	movf	tablat,w,c
+   268  000412  0900               	iorlw	0
+   269  000414  A4D8               	btfss	status,2,c
+   270  000416  D7E7               	goto	l959
+   271  000418  0012               	return		;funcret
+   272  00041A                     __end_of_putrsXLCD:
+   273                           	opt stack 0
+   274                           tblptru	equ	0xFF8
+   275                           tblptrh	equ	0xFF7
+   276                           tblptrl	equ	0xFF6
+   277                           tablat	equ	0xFF5
+   278                           status	equ	0xFD8
+   279                           
+   280 ;; *************** function _WriteDataXLCD *****************
+   281 ;; Defined at:
+   282 ;;		line 16 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\XLCD\writdata.c"
+   283 ;; Parameters:    Size  Location     Type
+   284 ;;  data            1    wreg     unsigned char 
+   285 ;; Auto vars:     Size  Location     Type
+   286 ;;  data            1    1[COMRAM] unsigned char 
+   287 ;; Return value:  Size  Location     Type
+   288 ;;		None               void
+   289 ;; Registers used:
+   290 ;;		wreg, status,2, status,0, cstack
+   291 ;; Tracked objects:
+   292 ;;		On entry : 0/0
+   293 ;;		On exit  : 0/0
+   294 ;;		Unchanged: 0/0
+   295 ;; Data sizes:     COMRAM   BANK0   BANK1
+   296 ;;      Params:         0       0       0
+   297 ;;      Locals:         1       0       0
+   298 ;;      Temps:          0       0       0
+   299 ;;      Totals:         1       0       0
+   300 ;;Total ram usage:        1 bytes
+   301 ;; Hardware stack levels used:    1
+   302 ;; Hardware stack levels required when called:    2
+   303 ;; This function calls:
+   304 ;;		_DelayFor18TCY
+   305 ;; This function is called by:
+   306 ;;		_putrsXLCD
+   307 ;; This function uses a non-reentrant model
+   308 ;;
+   309                           
+   310                           	psect	text2
+   311  000326                     __ptext2:
+   312                           	opt stack 0
+   313  000326                     _WriteDataXLCD:
+   314                           	opt stack 27
+   315                           
+   316                           ;incstack = 0
+   317                           ;WriteDataXLCD@data stored from wreg
+   318  000326  6E02               	movwf	WriteDataXLCD@data,c
+   319  000328  0EF0               	movlw	240
+   320  00032A  1693               	andwf	3987,f,c	;volatile
+   321  00032C  0EF0               	movlw	240
+   322  00032E  1681               	andwf	3969,f,c	;volatile
+   323  000330  3802               	swapf	WriteDataXLCD@data,w,c
+   324  000332  0B0F               	andlw	15
+   325  000334  0B0F               	andlw	15
+   326  000336  1281               	iorwf	3969,f,c	;volatile
+   327  000338  8A8A               	bsf	3978,5,c	;volatile
+   328  00033A  9C8A               	bcf	3978,6,c	;volatile
+   329  00033C  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   330  000340  888A               	bsf	3978,4,c	;volatile
+   331  000342  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   332  000346  988A               	bcf	3978,4,c	;volatile
+   333  000348  0EF0               	movlw	240
+   334  00034A  1681               	andwf	3969,f,c	;volatile
+   335  00034C  5002               	movf	WriteDataXLCD@data,w,c
+   336  00034E  0B0F               	andlw	15
+   337  000350  1281               	iorwf	3969,f,c	;volatile
+   338  000352  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   339  000356  888A               	bsf	3978,4,c	;volatile
+   340  000358  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   341  00035C  988A               	bcf	3978,4,c	;volatile
+   342  00035E  0E0F               	movlw	15
+   343  000360  1293               	iorwf	3987,f,c	;volatile
+   344  000362  D000               	goto	l138
+   345  000364                     l138:
+   346  000364  0012               	return		;funcret
+   347  000366                     __end_of_WriteDataXLCD:
+   348                           	opt stack 0
+   349                           tblptru	equ	0xFF8
+   350                           tblptrh	equ	0xFF7
+   351                           tblptrl	equ	0xFF6
+   352                           tablat	equ	0xFF5
+   353                           status	equ	0xFD8
+   354                           
+   355 ;; *************** function _init_XLCD *****************
+   356 ;; Defined at:
+   357 ;;		line 24 in file "main.c"
+   358 ;; Parameters:    Size  Location     Type
+   359 ;;		None
+   360 ;; Auto vars:     Size  Location     Type
+   361 ;;		None
+   362 ;; Return value:  Size  Location     Type
+   363 ;;		None               void
+   364 ;; Registers used:
+   365 ;;		wreg, status,2, status,0, cstack
+   366 ;; Tracked objects:
+   367 ;;		On entry : 0/0
+   368 ;;		On exit  : 0/0
+   369 ;;		Unchanged: 0/0
+   370 ;; Data sizes:     COMRAM   BANK0   BANK1
+   371 ;;      Params:         0       0       0
+   372 ;;      Locals:         0       0       0
+   373 ;;      Temps:          0       0       0
+   374 ;;      Totals:         0       0       0
+   375 ;;Total ram usage:        0 bytes
+   376 ;; Hardware stack levels used:    1
+   377 ;; Hardware stack levels required when called:    4
+   378 ;; This function calls:
+   379 ;;		_BusyXLCD
+   380 ;;		_OpenXLCD
+   381 ;;		_WriteCmdXLCD
+   382 ;; This function is called by:
+   383 ;;		_main
+   384 ;; This function uses a non-reentrant model
+   385 ;;
+   386                           
+   387                           	psect	text3
+   388  00044C                     __ptext3:
+   389                           	opt stack 0
+   390  00044C                     _init_XLCD:
+   391                           	opt stack 26
+   392                           
+   393                           ;main.c: 26: OpenXLCD(0b00101100&0b00111000);
+   394                           
+   395                           ;incstack = 0
+   396  00044C  0E28               	movlw	40
+   397  00044E  EC0E  F001         	call	_OpenXLCD
+   398                           
+   399                           ;main.c: 28: while(BusyXLCD());
+   400  000452  D000               	goto	l929
+   401  000454                     l929:
+   402  000454  ECD3  F001         	call	_BusyXLCD	;wreg free
+   403  000458  0900               	iorlw	0
+   404  00045A  A4D8               	btfss	status,2,c
+   405  00045C  D7FB               	goto	l929
+   406                           
+   407                           ;main.c: 30: WriteCmdXLCD(0x06);
+   408  00045E  0E06               	movlw	6
+   409  000460  ECB3  F001         	call	_WriteCmdXLCD
+   410                           
+   411                           ;main.c: 31: WriteCmdXLCD(0x18);
+   412  000464  0E18               	movlw	24
+   413  000466  ECB3  F001         	call	_WriteCmdXLCD
+   414  00046A  0012               	return		;funcret
+   415  00046C                     __end_of_init_XLCD:
+   416                           	opt stack 0
+   417                           tblptru	equ	0xFF8
+   418                           tblptrh	equ	0xFF7
+   419                           tblptrl	equ	0xFF6
+   420                           tablat	equ	0xFF5
+   421                           status	equ	0xFD8
+   422                           
+   423 ;; *************** function _OpenXLCD *****************
+   424 ;; Defined at:
+   425 ;;		line 19 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\XLCD\openxlcd.c"
+   426 ;; Parameters:    Size  Location     Type
+   427 ;;  lcdtype         1    wreg     unsigned char 
+   428 ;; Auto vars:     Size  Location     Type
+   429 ;;  lcdtype         1    5[COMRAM] unsigned char 
+   430 ;; Return value:  Size  Location     Type
+   431 ;;		None               void
+   432 ;; Registers used:
+   433 ;;		wreg, status,2, status,0, cstack
+   434 ;; Tracked objects:
+   435 ;;		On entry : 0/0
+   436 ;;		On exit  : 0/0
+   437 ;;		Unchanged: 0/0
+   438 ;; Data sizes:     COMRAM   BANK0   BANK1
+   439 ;;      Params:         0       0       0
+   440 ;;      Locals:         1       0       0
+   441 ;;      Temps:          0       0       0
+   442 ;;      Totals:         1       0       0
+   443 ;;Total ram usage:        1 bytes
+   444 ;; Hardware stack levels used:    1
+   445 ;; Hardware stack levels required when called:    3
+   446 ;; This function calls:
+   447 ;;		_BusyXLCD
+   448 ;;		_Delay10KTCYx
+   449 ;;		_DelayPORXLCD
+   450 ;;		_SetDDRamAddr
+   451 ;;		_WriteCmdXLCD
+   452 ;; This function is called by:
+   453 ;;		_init_XLCD
+   454 ;; This function uses a non-reentrant model
+   455 ;;
+   456                           
+   457                           	psect	text4
+   458  00021C                     __ptext4:
+   459                           	opt stack 0
+   460  00021C                     _OpenXLCD:
+   461                           	opt stack 26
+   462                           
+   463                           ;incstack = 0
+   464                           ;OpenXLCD@lcdtype stored from wreg
+   465  00021C  6E06               	movwf	OpenXLCD@lcdtype,c
+   466  00021E  0EF0               	movlw	240
+   467  000220  1681               	andwf	3969,f,c	;volatile
+   468  000222  0EF0               	movlw	240
+   469  000224  1693               	andwf	3987,f,c	;volatile
+   470  000226  9C93               	bcf	3987,6,c	;volatile
+   471  000228  9A93               	bcf	3987,5,c	;volatile
+   472  00022A  9893               	bcf	3987,4,c	;volatile
+   473  00022C  9C8A               	bcf	3978,6,c	;volatile
+   474  00022E  9A8A               	bcf	3978,5,c	;volatile
+   475  000230  988A               	bcf	3978,4,c	;volatile
+   476  000232  EC5B  F002         	call	_DelayPORXLCD	;wreg free
+   477  000236  0E30               	movlw	48
+   478  000238  ECB3  F001         	call	_WriteCmdXLCD
+   479  00023C  0E05               	movlw	5
+   480  00023E  EC36  F002         	call	_Delay10KTCYx
+   481  000242  0E30               	movlw	48
+   482  000244  ECB3  F001         	call	_WriteCmdXLCD
+   483  000248  0E01               	movlw	1
+   484  00024A  EC36  F002         	call	_Delay10KTCYx
+   485  00024E  0E32               	movlw	50
+   486  000250  ECB3  F001         	call	_WriteCmdXLCD
+   487  000254  D000               	goto	l875
+   488  000256                     l875:
+   489  000256  ECD3  F001         	call	_BusyXLCD	;wreg free
+   490  00025A  0900               	iorlw	0
+   491  00025C  B4D8               	btfsc	status,2,c
+   492  00025E  D002               	goto	l877
+   493  000260  D7FA               	goto	l875
+   494  000262  D000               	goto	l877
+   495  000264                     l877:
+   496  000264  ECD3  F001         	call	_BusyXLCD	;wreg free
+   497  000268  0900               	iorlw	0
+   498  00026A  A4D8               	btfss	status,2,c
+   499  00026C  D7FB               	goto	l877
+   500  00026E  5006               	movf	OpenXLCD@lcdtype,w,c
+   501  000270  ECB3  F001         	call	_WriteCmdXLCD
+   502  000274  D000               	goto	l881
+   503  000276                     l881:
+   504  000276  ECD3  F001         	call	_BusyXLCD	;wreg free
+   505  00027A  0900               	iorlw	0
+   506  00027C  A4D8               	btfss	status,2,c
+   507  00027E  D7FB               	goto	l881
+   508  000280  0E08               	movlw	8
+   509  000282  ECB3  F001         	call	_WriteCmdXLCD
+   510  000286  D000               	goto	l885
+   511  000288                     l885:
+   512  000288  ECD3  F001         	call	_BusyXLCD	;wreg free
+   513  00028C  0900               	iorlw	0
+   514  00028E  A4D8               	btfss	status,2,c
+   515  000290  D7FB               	goto	l885
+   516  000292  0E0F               	movlw	15
+   517  000294  ECB3  F001         	call	_WriteCmdXLCD
+   518  000298  D000               	goto	l889
+   519  00029A                     l889:
+   520  00029A  ECD3  F001         	call	_BusyXLCD	;wreg free
+   521  00029E  0900               	iorlw	0
+   522  0002A0  A4D8               	btfss	status,2,c
+   523  0002A2  D7FB               	goto	l889
+   524  0002A4  0E01               	movlw	1
+   525  0002A6  ECB3  F001         	call	_WriteCmdXLCD
+   526  0002AA  D000               	goto	l893
+   527  0002AC                     l893:
+   528  0002AC  ECD3  F001         	call	_BusyXLCD	;wreg free
+   529  0002B0  0900               	iorlw	0
+   530  0002B2  A4D8               	btfss	status,2,c
+   531  0002B4  D7FB               	goto	l893
+   532  0002B6  0E04               	movlw	4
+   533  0002B8  ECB3  F001         	call	_WriteCmdXLCD
+   534  0002BC  D000               	goto	l897
+   535  0002BE                     l897:
+   536  0002BE  ECD3  F001         	call	_BusyXLCD	;wreg free
+   537  0002C2  0900               	iorlw	0
+   538  0002C4  A4D8               	btfss	status,2,c
+   539  0002C6  D7FB               	goto	l897
+   540  0002C8  0E80               	movlw	128
+   541  0002CA  EC69  F001         	call	_SetDDRamAddr
+   542  0002CE  D000               	goto	l92
+   543  0002D0                     l92:
+   544  0002D0  0012               	return		;funcret
+   545  0002D2                     __end_of_OpenXLCD:
+   546                           	opt stack 0
+   547                           tblptru	equ	0xFF8
+   548                           tblptrh	equ	0xFF7
+   549                           tblptrl	equ	0xFF6
+   550                           tablat	equ	0xFF5
+   551                           status	equ	0xFD8
+   552                           
+   553 ;; *************** function _WriteCmdXLCD *****************
+   554 ;; Defined at:
+   555 ;;		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\XLCD\wcmdxlcd.c"
+   556 ;; Parameters:    Size  Location     Type
+   557 ;;  cmd             1    wreg     unsigned char 
+   558 ;; Auto vars:     Size  Location     Type
+   559 ;;  cmd             1    1[COMRAM] unsigned char 
+   560 ;; Return value:  Size  Location     Type
+   561 ;;		None               void
+   562 ;; Registers used:
+   563 ;;		wreg, status,2, status,0, cstack
+   564 ;; Tracked objects:
+   565 ;;		On entry : 0/0
+   566 ;;		On exit  : 0/0
+   567 ;;		Unchanged: 0/0
+   568 ;; Data sizes:     COMRAM   BANK0   BANK1
+   569 ;;      Params:         0       0       0
+   570 ;;      Locals:         1       0       0
+   571 ;;      Temps:          0       0       0
+   572 ;;      Totals:         1       0       0
+   573 ;;Total ram usage:        1 bytes
+   574 ;; Hardware stack levels used:    1
+   575 ;; Hardware stack levels required when called:    2
+   576 ;; This function calls:
+   577 ;;		_DelayFor18TCY
+   578 ;; This function is called by:
+   579 ;;		_init_XLCD
+   580 ;;		_OpenXLCD
+   581 ;; This function uses a non-reentrant model
+   582 ;;
+   583                           
+   584                           	psect	text5
+   585  000366                     __ptext5:
+   586                           	opt stack 0
+   587  000366                     _WriteCmdXLCD:
+   588                           	opt stack 27
+   589                           
+   590                           ;incstack = 0
+   591                           ;WriteCmdXLCD@cmd stored from wreg
+   592  000366  6E02               	movwf	WriteCmdXLCD@cmd,c
+   593  000368  0EF0               	movlw	240
+   594  00036A  1693               	andwf	3987,f,c	;volatile
+   595  00036C  0EF0               	movlw	240
+   596  00036E  1681               	andwf	3969,f,c	;volatile
+   597  000370  3802               	swapf	WriteCmdXLCD@cmd,w,c
+   598  000372  0B0F               	andlw	15
+   599  000374  0B0F               	andlw	15
+   600  000376  1281               	iorwf	3969,f,c	;volatile
+   601  000378  9C8A               	bcf	3978,6,c	;volatile
+   602  00037A  9A8A               	bcf	3978,5,c	;volatile
+   603  00037C  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   604  000380  888A               	bsf	3978,4,c	;volatile
+   605  000382  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   606  000386  988A               	bcf	3978,4,c	;volatile
+   607  000388  0EF0               	movlw	240
+   608  00038A  1681               	andwf	3969,f,c	;volatile
+   609  00038C  5002               	movf	WriteCmdXLCD@cmd,w,c
+   610  00038E  0B0F               	andlw	15
+   611  000390  1281               	iorwf	3969,f,c	;volatile
+   612  000392  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   613  000396  888A               	bsf	3978,4,c	;volatile
+   614  000398  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   615  00039C  988A               	bcf	3978,4,c	;volatile
+   616  00039E  0E0F               	movlw	15
+   617  0003A0  1293               	iorwf	3987,f,c	;volatile
+   618  0003A2  D000               	goto	l127
+   619  0003A4                     l127:
+   620  0003A4  0012               	return		;funcret
+   621  0003A6                     __end_of_WriteCmdXLCD:
+   622                           	opt stack 0
+   623                           tblptru	equ	0xFF8
+   624                           tblptrh	equ	0xFF7
+   625                           tblptrl	equ	0xFF6
+   626                           tablat	equ	0xFF5
+   627                           status	equ	0xFD8
+   628                           
+   629 ;; *************** function _SetDDRamAddr *****************
+   630 ;; Defined at:
+   631 ;;		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\XLCD\setddram.c"
+   632 ;; Parameters:    Size  Location     Type
+   633 ;;  DDaddr          1    wreg     unsigned char 
+   634 ;; Auto vars:     Size  Location     Type
+   635 ;;  DDaddr          1    4[COMRAM] unsigned char 
+   636 ;; Return value:  Size  Location     Type
+   637 ;;		None               void
+   638 ;; Registers used:
+   639 ;;		wreg, status,2, status,0, cstack
+   640 ;; Tracked objects:
+   641 ;;		On entry : 0/0
+   642 ;;		On exit  : 0/0
+   643 ;;		Unchanged: 0/0
+   644 ;; Data sizes:     COMRAM   BANK0   BANK1
+   645 ;;      Params:         0       0       0
+   646 ;;      Locals:         1       0       0
+   647 ;;      Temps:          3       0       0
+   648 ;;      Totals:         4       0       0
+   649 ;;Total ram usage:        4 bytes
+   650 ;; Hardware stack levels used:    1
+   651 ;; Hardware stack levels required when called:    2
+   652 ;; This function calls:
+   653 ;;		_DelayFor18TCY
+   654 ;; This function is called by:
+   655 ;;		_main
+   656 ;;		_OpenXLCD
+   657 ;; This function uses a non-reentrant model
+   658 ;;
+   659                           
+   660                           	psect	text6
+   661  0002D2                     __ptext6:
+   662                           	opt stack 0
+   663  0002D2                     _SetDDRamAddr:
+   664                           	opt stack 26
+   665                           
+   666                           ;incstack = 0
+   667                           ;SetDDRamAddr@DDaddr stored from wreg
+   668  0002D2  6E05               	movwf	SetDDRamAddr@DDaddr,c
+   669  0002D4  0EF0               	movlw	240
+   670  0002D6  1693               	andwf	3987,f,c	;volatile
+   671  0002D8  0EF0               	movlw	240
+   672  0002DA  1681               	andwf	3969,f,c	;volatile
+   673  0002DC  5005               	movf	SetDDRamAddr@DDaddr,w,c
+   674  0002DE  6E02               	movwf	??_SetDDRamAddr& (0+255),c
+   675  0002E0  6A03               	clrf	(??_SetDDRamAddr+1)& (0+255),c
+   676  0002E2  8E02               	bsf	??_SetDDRamAddr,7,c
+   677  0002E4  0E04               	movlw	4
+   678  0002E6  6E04               	movwf	(??_SetDDRamAddr+2)& (0+255),c
+   679  0002E8                     u15:
+   680  0002E8  3403               	rlcf	??_SetDDRamAddr+1,w,c
+   681  0002EA  3203               	rrcf	??_SetDDRamAddr+1,f,c
+   682  0002EC  3202               	rrcf	??_SetDDRamAddr,f,c
+   683  0002EE  2E04               	decfsz	(??_SetDDRamAddr+2)& (0+255),f,c
+   684  0002F0  D7FB               	goto	u15
+   685  0002F2  5002               	movf	??_SetDDRamAddr,w,c
+   686  0002F4  0B0F               	andlw	15
+   687  0002F6  1281               	iorwf	3969,f,c	;volatile
+   688  0002F8  9C8A               	bcf	3978,6,c	;volatile
+   689  0002FA  9A8A               	bcf	3978,5,c	;volatile
+   690  0002FC  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   691  000300  888A               	bsf	3978,4,c	;volatile
+   692  000302  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   693  000306  988A               	bcf	3978,4,c	;volatile
+   694  000308  0EF0               	movlw	240
+   695  00030A  1681               	andwf	3969,f,c	;volatile
+   696  00030C  5005               	movf	SetDDRamAddr@DDaddr,w,c
+   697  00030E  0B0F               	andlw	15
+   698  000310  1281               	iorwf	3969,f,c	;volatile
+   699  000312  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   700  000316  888A               	bsf	3978,4,c	;volatile
+   701  000318  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   702  00031C  988A               	bcf	3978,4,c	;volatile
+   703  00031E  0E0F               	movlw	15
+   704  000320  1293               	iorwf	3987,f,c	;volatile
+   705  000322  D000               	goto	l116
+   706  000324                     l116:
+   707  000324  0012               	return		;funcret
+   708  000326                     __end_of_SetDDRamAddr:
+   709                           	opt stack 0
+   710                           tblptru	equ	0xFF8
+   711                           tblptrh	equ	0xFF7
+   712                           tblptrl	equ	0xFF6
+   713                           tablat	equ	0xFF5
+   714                           status	equ	0xFD8
+   715                           
+   716 ;; *************** function _DelayPORXLCD *****************
+   717 ;; Defined at:
+   718 ;;		line 37 in file "main.c"
+   719 ;; Parameters:    Size  Location     Type
+   720 ;;		None
+   721 ;; Auto vars:     Size  Location     Type
+   722 ;;		None
+   723 ;; Return value:  Size  Location     Type
+   724 ;;		None               void
+   725 ;; Registers used:
+   726 ;;		wreg, cstack
+   727 ;; Tracked objects:
+   728 ;;		On entry : 0/0
+   729 ;;		On exit  : 0/0
+   730 ;;		Unchanged: 0/0
+   731 ;; Data sizes:     COMRAM   BANK0   BANK1
+   732 ;;      Params:         0       0       0
+   733 ;;      Locals:         0       0       0
+   734 ;;      Temps:          0       0       0
+   735 ;;      Totals:         0       0       0
+   736 ;;Total ram usage:        0 bytes
+   737 ;; Hardware stack levels used:    1
+   738 ;; Hardware stack levels required when called:    1
+   739 ;; This function calls:
+   740 ;;		_Delay1KTCYx
+   741 ;; This function is called by:
+   742 ;;		_OpenXLCD
+   743 ;; This function uses a non-reentrant model
+   744 ;;
+   745                           
+   746                           	psect	text7
+   747  0004B6                     __ptext7:
+   748                           	opt stack 0
+   749  0004B6                     _DelayPORXLCD:
+   750                           	opt stack 27
+   751                           
+   752                           ;main.c: 39: Delay1KTCYx(30);
+   753                           
+   754                           ;incstack = 0
+   755  0004B6  0E1E               	movlw	30
+   756  0004B8  EC42  F002         	call	_Delay1KTCYx
+   757  0004BC  0012               	return		;funcret
+   758  0004BE                     __end_of_DelayPORXLCD:
+   759                           	opt stack 0
+   760                           tblptru	equ	0xFF8
+   761                           tblptrh	equ	0xFF7
+   762                           tblptrl	equ	0xFF6
+   763                           tablat	equ	0xFF5
+   764                           status	equ	0xFD8
+   765                           
+   766 ;; *************** function _Delay1KTCYx *****************
+   767 ;; Defined at:
+   768 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\d1ktcyx.c"
+   769 ;; Parameters:    Size  Location     Type
+   770 ;;  unit            1    wreg     unsigned char 
+   771 ;; Auto vars:     Size  Location     Type
+   772 ;;  unit            1    0[COMRAM] unsigned char 
+   773 ;; Return value:  Size  Location     Type
+   774 ;;		None               void
+   775 ;; Registers used:
+   776 ;;		wreg
+   777 ;; Tracked objects:
+   778 ;;		On entry : 0/0
+   779 ;;		On exit  : 0/0
+   780 ;;		Unchanged: 0/0
+   781 ;; Data sizes:     COMRAM   BANK0   BANK1
+   782 ;;      Params:         0       0       0
+   783 ;;      Locals:         1       0       0
+   784 ;;      Temps:          0       0       0
+   785 ;;      Totals:         1       0       0
+   786 ;;Total ram usage:        1 bytes
+   787 ;; Hardware stack levels used:    1
+   788 ;; This function calls:
+   789 ;;		Nothing
+   790 ;; This function is called by:
+   791 ;;		_DelayPORXLCD
+   792 ;;		_DelayXLCD
+   793 ;; This function uses a non-reentrant model
+   794 ;;
+   795                           
+   796                           	psect	text8
+   797  000484                     __ptext8:
+   798                           	opt stack 0
+   799  000484                     _Delay1KTCYx:
+   800                           	opt stack 27
+   801                           
+   802                           ;incstack = 0
+   803                           ;Delay1KTCYx@unit stored from wreg
+   804  000484  6E01               	movwf	Delay1KTCYx@unit,c
+   805  000486  0EFA               	movlw	250
+   806  000488                     u157:
+   807  000488  F000               	nop	
+   808  00048A  2EE8               	decfsz	wreg,f,c
+   809  00048C  D7FD               	goto	u157
+   810  00048E  2E01               	decfsz	Delay1KTCYx@unit,f,c
+   811  000490  D7FA               	goto	l755
+   812  000492  D000               	goto	l380
+   813  000494                     l380:
+   814  000494  0012               	return		;funcret
+   815  000496                     __end_of_Delay1KTCYx:
+   816                           	opt stack 0
+   817                           tblptru	equ	0xFF8
+   818                           tblptrh	equ	0xFF7
+   819                           tblptrl	equ	0xFF6
+   820                           tablat	equ	0xFF5
+   821                           wreg	equ	0xFE8
+   822                           status	equ	0xFD8
+   823                           
+   824 ;; *************** function _Delay10KTCYx *****************
+   825 ;; Defined at:
+   826 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\d10ktcyx.c"
+   827 ;; Parameters:    Size  Location     Type
+   828 ;;  unit            1    wreg     unsigned char 
+   829 ;; Auto vars:     Size  Location     Type
+   830 ;;  unit            1    1[COMRAM] unsigned char 
+   831 ;; Return value:  Size  Location     Type
+   832 ;;		None               void
+   833 ;; Registers used:
+   834 ;;		wreg
+   835 ;; Tracked objects:
+   836 ;;		On entry : 0/0
+   837 ;;		On exit  : 0/0
+   838 ;;		Unchanged: 0/0
+   839 ;; Data sizes:     COMRAM   BANK0   BANK1
+   840 ;;      Params:         0       0       0
+   841 ;;      Locals:         1       0       0
+   842 ;;      Temps:          1       0       0
+   843 ;;      Totals:         2       0       0
+   844 ;;Total ram usage:        2 bytes
+   845 ;; Hardware stack levels used:    1
+   846 ;; This function calls:
+   847 ;;		Nothing
+   848 ;; This function is called by:
+   849 ;;		_OpenXLCD
+   850 ;; This function uses a non-reentrant model
+   851 ;;
+   852                           
+   853                           	psect	text9
+   854  00046C                     __ptext9:
+   855                           	opt stack 0
+   856  00046C                     _Delay10KTCYx:
+   857                           	opt stack 28
+   858                           
+   859                           ;incstack = 0
+   860                           ;Delay10KTCYx@unit stored from wreg
+   861  00046C  6E02               	movwf	Delay10KTCYx@unit,c
+   862  00046E  0E0D               	movlw	13
+   863  000470  6E01               	movwf	??_Delay10KTCYx& (0+255),c
+   864  000472  0EFC               	movlw	252
+   865  000474                     u167:
+   866  000474  2EE8               	decfsz	wreg,f,c
+   867  000476  D7FE               	goto	u167
+   868  000478  2E01               	decfsz	??_Delay10KTCYx& (0+255),f,c
+   869  00047A  D7FC               	goto	u167
+   870  00047C  2E02               	decfsz	Delay10KTCYx@unit,f,c
+   871  00047E  D7F7               	goto	l845
+   872  000480  D000               	goto	l366
+   873  000482                     l366:
+   874  000482  0012               	return		;funcret
+   875  000484                     __end_of_Delay10KTCYx:
+   876                           	opt stack 0
+   877                           tblptru	equ	0xFF8
+   878                           tblptrh	equ	0xFF7
+   879                           tblptrl	equ	0xFF6
+   880                           tablat	equ	0xFF5
+   881                           wreg	equ	0xFE8
+   882                           status	equ	0xFD8
+   883                           
+   884 ;; *************** function _BusyXLCD *****************
+   885 ;; Defined at:
+   886 ;;		line 11 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\plib\XLCD\busyxlcd.c"
+   887 ;; Parameters:    Size  Location     Type
+   888 ;;		None
+   889 ;; Auto vars:     Size  Location     Type
+   890 ;;		None
+   891 ;; Return value:  Size  Location     Type
+   892 ;;                  1    wreg      unsigned char 
+   893 ;; Registers used:
+   894 ;;		wreg, cstack
+   895 ;; Tracked objects:
+   896 ;;		On entry : 0/0
+   897 ;;		On exit  : 0/0
+   898 ;;		Unchanged: 0/0
+   899 ;; Data sizes:     COMRAM   BANK0   BANK1
+   900 ;;      Params:         0       0       0
+   901 ;;      Locals:         0       0       0
+   902 ;;      Temps:          0       0       0
+   903 ;;      Totals:         0       0       0
+   904 ;;Total ram usage:        0 bytes
+   905 ;; Hardware stack levels used:    1
+   906 ;; Hardware stack levels required when called:    2
+   907 ;; This function calls:
+   908 ;;		_DelayFor18TCY
+   909 ;; This function is called by:
+   910 ;;		_init_XLCD
+   911 ;;		_OpenXLCD
+   912 ;;		_putrsXLCD
+   913 ;; This function uses a non-reentrant model
+   914 ;;
+   915                           
+   916                           	psect	text10
+   917  0003A6                     __ptext10:
+   918                           	opt stack 0
+   919  0003A6                     _BusyXLCD:
+   920                           	opt stack 27
+   921                           
+   922                           ;incstack = 0
+   923  0003A6  8C8A               	bsf	3978,6,c	;volatile
+   924  0003A8  9A8A               	bcf	3978,5,c	;volatile
+   925  0003AA  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   926  0003AE  888A               	bsf	3978,4,c	;volatile
+   927  0003B0  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   928  0003B4  A681               	btfss	3969,3,c	;volatile
+   929  0003B6  D00A               	goto	l48
+   930  0003B8  988A               	bcf	3978,4,c	;volatile
+   931  0003BA  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   932  0003BE  888A               	bsf	3978,4,c	;volatile
+   933  0003C0  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   934  0003C4  988A               	bcf	3978,4,c	;volatile
+   935  0003C6  9C8A               	bcf	3978,6,c	;volatile
+   936  0003C8  0E01               	movlw	1
+   937  0003CA  D00A               	goto	l49
+   938  0003CC                     l48:
+   939  0003CC  988A               	bcf	3978,4,c	;volatile
+   940  0003CE  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   941  0003D2  888A               	bsf	3978,4,c	;volatile
+   942  0003D4  EC5F  F002         	call	_DelayFor18TCY	;wreg free
+   943  0003D8  988A               	bcf	3978,4,c	;volatile
+   944  0003DA  9C8A               	bcf	3978,6,c	;volatile
+   945  0003DC  0E00               	movlw	0
+   946  0003DE  D000               	goto	l49
+   947  0003E0                     l49:
+   948  0003E0  0012               	return		;funcret
+   949  0003E2                     __end_of_BusyXLCD:
+   950                           	opt stack 0
+   951                           tblptru	equ	0xFF8
+   952                           tblptrh	equ	0xFF7
+   953                           tblptrl	equ	0xFF6
+   954                           tablat	equ	0xFF5
+   955                           wreg	equ	0xFE8
+   956                           status	equ	0xFD8
+   957                           
+   958 ;; *************** function _DelayFor18TCY *****************
+   959 ;; Defined at:
+   960 ;;		line 33 in file "main.c"
+   961 ;; Parameters:    Size  Location     Type
+   962 ;;		None
+   963 ;; Auto vars:     Size  Location     Type
+   964 ;;		None
+   965 ;; Return value:  Size  Location     Type
+   966 ;;		None               void
+   967 ;; Registers used:
+   968 ;;		wreg, cstack
+   969 ;; Tracked objects:
+   970 ;;		On entry : 0/0
+   971 ;;		On exit  : 0/0
+   972 ;;		Unchanged: 0/0
+   973 ;; Data sizes:     COMRAM   BANK0   BANK1
+   974 ;;      Params:         0       0       0
+   975 ;;      Locals:         0       0       0
+   976 ;;      Temps:          0       0       0
+   977 ;;      Totals:         0       0       0
+   978 ;;Total ram usage:        0 bytes
+   979 ;; Hardware stack levels used:    1
+   980 ;; Hardware stack levels required when called:    1
+   981 ;; This function calls:
+   982 ;;		_Delay10TCYx
+   983 ;; This function is called by:
+   984 ;;		_BusyXLCD
+   985 ;;		_SetDDRamAddr
+   986 ;;		_WriteCmdXLCD
+   987 ;;		_WriteDataXLCD
+   988 ;; This function uses a non-reentrant model
+   989 ;;
+   990                           
+   991                           	psect	text11
+   992  0004BE                     __ptext11:
+   993                           	opt stack 0
+   994  0004BE                     _DelayFor18TCY:
+   995                           	opt stack 27
+   996                           
+   997                           ;main.c: 35: Delay10TCYx(20);
+   998                           
+   999                           ;incstack = 0
+  1000  0004BE  0E14               	movlw	20
+  1001  0004C0  EC4B  F002         	call	_Delay10TCYx
+  1002  0004C4  0012               	return		;funcret
+  1003  0004C6                     __end_of_DelayFor18TCY:
+  1004                           	opt stack 0
+  1005                           tblptru	equ	0xFF8
+  1006                           tblptrh	equ	0xFF7
+  1007                           tblptrl	equ	0xFF6
+  1008                           tablat	equ	0xFF5
+  1009                           wreg	equ	0xFE8
+  1010                           status	equ	0xFD8
+  1011                           
+  1012 ;; *************** function _Delay10TCYx *****************
+  1013 ;; Defined at:
+  1014 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\pic18\d10tcyx.c"
+  1015 ;; Parameters:    Size  Location     Type
+  1016 ;;  unit            1    wreg     unsigned char 
+  1017 ;; Auto vars:     Size  Location     Type
+  1018 ;;  unit            1    0[COMRAM] unsigned char 
+  1019 ;; Return value:  Size  Location     Type
+  1020 ;;		None               void
+  1021 ;; Registers used:
+  1022 ;;		wreg
+  1023 ;; Tracked objects:
+  1024 ;;		On entry : 0/0
+  1025 ;;		On exit  : 0/0
+  1026 ;;		Unchanged: 0/0
+  1027 ;; Data sizes:     COMRAM   BANK0   BANK1
+  1028 ;;      Params:         0       0       0
+  1029 ;;      Locals:         1       0       0
+  1030 ;;      Temps:          0       0       0
+  1031 ;;      Totals:         1       0       0
+  1032 ;;Total ram usage:        1 bytes
+  1033 ;; Hardware stack levels used:    1
+  1034 ;; This function calls:
+  1035 ;;		Nothing
+  1036 ;; This function is called by:
+  1037 ;;		_DelayFor18TCY
+  1038 ;; This function uses a non-reentrant model
+  1039 ;;
+  1040                           
+  1041                           	psect	text12
+  1042  000496                     __ptext12:
+  1043                           	opt stack 0
+  1044  000496                     _Delay10TCYx:
+  1045                           	opt stack 27
+  1046                           
+  1047                           ;incstack = 0
+  1048                           ;Delay10TCYx@unit stored from wreg
+  1049  000496  6E01               	movwf	Delay10TCYx@unit,c
+  1050  000498  0E03               	movlw	3
+  1051  00049A                     u177:
+  1052  00049A  2EE8               	decfsz	wreg,f,c
+  1053  00049C  D7FE               	goto	u177
+  1054  00049E  F000               	nop	
+  1055  0004A0  2E01               	decfsz	Delay10TCYx@unit,f,c
+  1056  0004A2  D7FA               	goto	l749
+  1057  0004A4  D000               	goto	l373
+  1058  0004A6                     l373:
+  1059  0004A6  0012               	return		;funcret
+  1060  0004A8                     __end_of_Delay10TCYx:
+  1061                           	opt stack 0
+  1062                           tblptru	equ	0xFF8
+  1063                           tblptrh	equ	0xFF7
+  1064                           tblptrl	equ	0xFF6
+  1065                           tablat	equ	0xFF5
+  1066                           wreg	equ	0xFE8
+  1067                           status	equ	0xFD8
+  1068                           tblptru	equ	0xFF8
+  1069                           tblptrh	equ	0xFF7
+  1070                           tblptrl	equ	0xFF6
+  1071                           tablat	equ	0xFF5
+  1072                           wreg	equ	0xFE8
+  1073                           status	equ	0xFD8
+  1074                           
+  1075                           	psect	rparam
+  1076  0000                     tblptru	equ	0xFF8
+  1077                           tblptrh	equ	0xFF7
+  1078                           tblptrl	equ	0xFF6
+  1079                           tablat	equ	0xFF5
+  1080                           wreg	equ	0xFE8
+  1081                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     25
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127      6       6
+    BANK0           128      0       0
+    BANK1           256      0       0
+
+Pointer List with Targets:
+
+    putrsXLCD@buffer	PTR const unsigned char  size(2) Largest target is 16
+		 -> STR_2(CODE[9]), STR_1(CODE[16]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _putrsXLCD->_WriteDataXLCD
+    _init_XLCD->_OpenXLCD
+    _OpenXLCD->_SetDDRamAddr
+    _DelayPORXLCD->_Delay1KTCYx
+    _DelayFor18TCY->_Delay10TCYx
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0     466
+                       _SetDDRamAddr
+                          _init_XLCD
+                          _putrsXLCD
+ ---------------------------------------------------------------------------------
+ (1) _putrsXLCD                                            2     0      2     211
+                                              2 COMRAM     2     0      2
+                           _BusyXLCD
+                      _WriteDataXLCD
+ ---------------------------------------------------------------------------------
+ (2) _WriteDataXLCD                                        1     1      0      45
+                                              1 COMRAM     1     1      0
+                      _DelayFor18TCY
+ ---------------------------------------------------------------------------------
+ (1) _init_XLCD                                            0     0      0     210
+                           _BusyXLCD
+                           _OpenXLCD
+                       _WriteCmdXLCD
+ ---------------------------------------------------------------------------------
+ (2) _OpenXLCD                                             1     1      0     150
+                                              5 COMRAM     1     1      0
+                           _BusyXLCD
+                       _Delay10KTCYx
+                       _DelayPORXLCD
+                       _SetDDRamAddr
+                       _WriteCmdXLCD
+ ---------------------------------------------------------------------------------
+ (2) _WriteCmdXLCD                                         1     1      0      45
+                                              1 COMRAM     1     1      0
+                      _DelayFor18TCY
+ ---------------------------------------------------------------------------------
+ (3) _SetDDRamAddr                                         4     4      0      45
+                                              1 COMRAM     4     4      0
+                      _DelayFor18TCY
+ ---------------------------------------------------------------------------------
+ (3) _DelayPORXLCD                                         0     0      0      15
+                        _Delay1KTCYx
+ ---------------------------------------------------------------------------------
+ (4) _Delay1KTCYx                                          1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (3) _Delay10KTCYx                                         2     2      0      15
+                                              0 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ (2) _BusyXLCD                                             0     0      0      15
+                      _DelayFor18TCY
+ ---------------------------------------------------------------------------------
+ (3) _DelayFor18TCY                                        0     0      0      15
+                        _Delay10TCYx
+ ---------------------------------------------------------------------------------
+ (4) _Delay10TCYx                                          1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _SetDDRamAddr
+     _DelayFor18TCY
+       _Delay10TCYx
+   _init_XLCD
+     _BusyXLCD
+       _DelayFor18TCY
+         _Delay10TCYx
+     _OpenXLCD
+       _BusyXLCD
+         _DelayFor18TCY
+           _Delay10TCYx
+       _Delay10KTCYx
+       _DelayPORXLCD
+         _Delay1KTCYx
+       _SetDDRamAddr
+         _DelayFor18TCY
+           _Delay10TCYx
+       _WriteCmdXLCD
+         _DelayFor18TCY
+           _Delay10TCYx
+     _WriteCmdXLCD
+       _DelayFor18TCY
+         _Delay10TCYx
+   _putrsXLCD
+     _BusyXLCD
+       _DelayFor18TCY
+         _Delay10TCYx
+     _WriteDataXLCD
+       _DelayFor18TCY
+         _Delay10TCYx
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           7F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              7F      6       6       1        4.7%
+STACK                0      0       0       2        0.0%
+BITBANK0            80      0       0       3        0.0%
+BANK0               80      0       0       4        0.0%
+BITBANK1           100      0       0       5        0.0%
+BANK1              100      0       0       6        0.0%
+ABS                  0      0       0       7        0.0%
+BIGRAM             1FF      0       0       8        0.0%
+DATA                 0      0       0       9        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
+Symbol Table                                                                                   Fri Mar 18 12:09:16 2022
+
+                     l22 0446                       l48 03CC                       l49 03E0  
+                     l92 02D0                       u15 02E8             __CFG_CP0$OFF 000000  
+           __CFG_CP1$OFF 000000              __CFG_LVP$ON 000000                      l116 0324  
+                    l127 03A4                      l138 0364                      l380 0494  
+                    l373 04A6                      l366 0482                      l755 0486  
+                    l749 0498                      l845 046E                      l881 0276  
+                    l929 0454                      l875 0256                      l893 02AC  
+                    l885 0288                      l877 0264                      l965 0406  
+                    l959 03E6                      l897 02BE                      l889 029A  
+           __CFG_CPB$OFF 000000                      u157 0488                      u167 0474  
+                    u177 049A             __CFG_CPD$OFF 000000             __CFG_BOR$OFF 000000  
+           __CFG_BORV$20 000000    __size_of_WriteCmdXLCD 0040                      wreg 000FE8  
+           __CFG_WDT$OFF 000000                     STR_1 0201                     STR_2 0211  
+           __CFG_STVR$ON 000000                     _main 041A   __size_of_WriteDataXLCD 0040  
+          __CFG_PBAD$ANA 000000                     start 0000            __CFG_FSCM$OFF 000000  
+          __CFG_IESO$OFF 000000             ___param_bank 000010              _Delay10TCYx 0496  
+           _WriteCmdXLCD 0366              _Delay1KTCYx 0484           __CFG_CCP2MX$ON 000000  
+          ?_SetDDRamAddr 0001                    ?_main 0001                    _PORTB 000F81  
+                  _TRISB 000F93    __size_of_Delay10KTCYx 0018            __CFG_PWRT$OFF 000000  
+          __CFG_WRT0$OFF 000000            __CFG_WRT1$OFF 000000           __CFG_EBTR0$OFF 000000  
+         __CFG_EBTR1$OFF 000000            __CFG_WRTB$OFF 000000            __CFG_WRTC$OFF 000000  
+          __CFG_WRTD$OFF 000000           __CFG_EBTRB$OFF 000000                    tablat 000FF5  
+                  status 000FD8           __CFG_MCLRE$OFF 000000          __initialization 04A8  
+           __end_of_main 044C         __end_of_BusyXLCD 03E2             _Delay10KTCYx 046C  
+  __size_of_DelayPORXLCD 0008           ??_SetDDRamAddr 0002         __end_of_OpenXLCD 02D2  
+                 ??_main 0007            __activetblptr 000001            _WriteDataXLCD 0326  
+                 _OSCCON 000FD3             _DelayPORXLCD 04B6           ?_WriteDataXLCD 0001  
+           __mediumconst 0000                   tblptrh 000FF7                   tblptrl 000FF6  
+                 tblptru 000FF8               __accesstop 0080  __end_of__initialization 04A8  
+          ___rparam_used 000001           __pcstackCOMRAM 0001          __CFG_OSC$INTIO2 000000  
+ __size_of_DelayFor18TCY 0008                ?_BusyXLCD 0001          WriteCmdXLCD@cmd 0002  
+   __end_of_SetDDRamAddr 0326       __size_of_init_XLCD 0020                ?_OpenXLCD 0001  
+      WriteDataXLCD@data 0002             ?_Delay10TCYx 0001          ??_WriteDataXLCD 0002  
+           ?_Delay1KTCYx 0001       __size_of_putrsXLCD 0038               ??_BusyXLCD 0002  
+             ??_OpenXLCD 0006                  __Hparam 0000                  __Lparam 0000  
+          _DelayFor18TCY 04BE             __psmallconst 0200                  __pcinit 04A8  
+        putrsXLCD@buffer 0003          Delay10TCYx@unit 0001                  __ramtop 0200  
+                __ptext0 041A                  __ptext1 03E2                  __ptext2 0326  
+                __ptext3 044C                  __ptext4 021C                  __ptext5 0366  
+                __ptext6 02D2                  __ptext7 04B6                  __ptext8 0484  
+                __ptext9 046C        __end_of_init_XLCD 046C     end_of_initialization 04A8  
+         ?_DelayFor18TCY 0001        __end_of_putrsXLCD 041A                _TRISBbits 000F93  
+  __size_of_SetDDRamAddr 0054     __size_of_Delay10TCYx 0012             _SetDDRamAddr 02D2  
+   __size_of_Delay1KTCYx 0012       SetDDRamAddr@DDaddr 0005      start_initialization 04A8  
+      __size_of_BusyXLCD 003C          ??_DelayFor18TCY 0002        __size_of_OpenXLCD 00B6  
+          ?_WriteCmdXLCD 0001          Delay1KTCYx@unit 0001           ??_WriteCmdXLCD 0002  
+          ?_Delay10KTCYx 0001    __end_of_WriteDataXLCD 0366              __smallconst 0200  
+              _init_XLCD 044C                 _LATBbits 000F8A            ?_DelayPORXLCD 0001  
+        OpenXLCD@lcdtype 0006         __CFG_WDTPS$32768 000000           ??_Delay10KTCYx 0001  
+              _putrsXLCD 03E2         Delay10KTCYx@unit 0002               ?_init_XLCD 0001  
+               _BusyXLCD 03A6           ??_DelayPORXLCD 0002                 _OpenXLCD 021C  
+               __Hrparam 0000                 __Lrparam 0000             __Lsmallconst 0200  
+             ?_putrsXLCD 0003                 __ptext10 03A6                 __ptext11 04BE  
+               __ptext12 0496     __end_of_WriteCmdXLCD 03A6            __size_of_main 0032  
+          ??_Delay10TCYx 0001            ??_Delay1KTCYx 0001              ??_init_XLCD 0007  
+   __end_of_Delay10KTCYx 0484    __end_of_DelayFor18TCY 04C6      __end_of_Delay10TCYx 04A8  
+   __end_of_DelayPORXLCD 04BE              ??_putrsXLCD 0005      __end_of_Delay1KTCYx 0496  
