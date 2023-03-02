@@ -1,0 +1,293 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.34 build -361300703 
+                                                                                               Wed Dec 22 15:25:38 2021
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 201502162209
+     1                           	processor	18F2220
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+     9                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    10  0000                     _LATBbits	set	3978
+    11  0000                     _LATCbits	set	3979
+    12  0000                     _OSCCON	set	4051
+    13  0000                     _PORTCbits	set	3970
+    14  0000                     _TRISBbits	set	3987
+    15  0000                     _TRISCbits	set	3988
+    16                           
+    17 ;;
+    18 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+    19 ;;
+    20 ;; *************** function _main *****************
+    21 ;; Defined at:
+    22 ;;		line 12 in file "main.c"
+    23 ;; Parameters:    Size  Location     Type
+    24 ;;		None
+    25 ;; Auto vars:     Size  Location     Type
+    26 ;;  c               2    1[COMRAM] int 
+    27 ;; Return value:  Size  Location     Type
+    28 ;;		None               void
+    29 ;; Registers used:
+    30 ;;		wreg, status,2, status,0
+    31 ;; Tracked objects:
+    32 ;;		On entry : 0/0
+    33 ;;		On exit  : 0/0
+    34 ;;		Unchanged: 0/0
+    35 ;; Data sizes:     COMRAM   BANK0   BANK1
+    36 ;;      Params:         0       0       0
+    37 ;;      Locals:         2       0       0
+    38 ;;      Temps:          1       0       0
+    39 ;;      Totals:         3       0       0
+    40 ;;Total ram usage:        3 bytes
+    41 ;; This function calls:
+    42 ;;		Nothing
+    43 ;; This function is called by:
+    44 ;;		Startup code after reset
+    45 ;; This function uses a non-reentrant model
+    46 ;;
+    47                           
+    48                           	psect	text0
+    49  000F98                     __ptext0:
+    50                           	opt stack 0
+    51  000F98                     _main:
+    52                           	opt stack 31
+    53                           
+    54                           ;main.c: 14: TRISBbits.RB0 = 0;
+    55                           
+    56                           ;incstack = 0
+    57  000F98  9093               	bcf	3987,0,c	;volatile
+    58                           
+    59                           ;main.c: 15: TRISBbits.RB1 = 0;
+    60  000F9A  9293               	bcf	3987,1,c	;volatile
+    61                           
+    62                           ;main.c: 16: TRISCbits.RC2 = 0;
+    63  000F9C  9494               	bcf	3988,2,c	;volatile
+    64                           
+    65                           ;main.c: 17: TRISCbits.RC1 = 0;
+    66  000F9E  9294               	bcf	3988,1,c	;volatile
+    67                           
+    68                           ;main.c: 18: TRISCbits.RC0 = 1;
+    69  000FA0  8094               	bsf	3988,0,c	;volatile
+    70                           
+    71                           ;main.c: 19: OSCCON = 0x76;
+    72  000FA2  0E76               	movlw	118
+    73  000FA4  6ED3               	movwf	4051,c	;volatile
+    74  000FA6  D000               	goto	l611
+    75  000FA8                     l611:
+    76                           
+    77                           ;main.c: 21: {
+    78                           ;main.c: 22: if(PORTCbits.RC0 == 0)
+    79  000FA8  B082               	btfsc	3970,0,c	;volatile
+    80  000FAA  D023               	goto	l18
+    81                           
+    82                           ;main.c: 23: {
+    83                           ;main.c: 24: for(int c=0;c<=20;c++)_delay((unsigned long)((5)*(8000000/4000.0)));
+    84  000FAC  0E00               	movlw	0
+    85  000FAE  6E03               	movwf	main@c+1,c
+    86  000FB0  0E00               	movlw	0
+    87  000FB2  6E02               	movwf	main@c,c
+    88  000FB4  BE03               	btfsc	main@c+1,7,c
+    89  000FB6  D008               	goto	l619
+    90  000FB8  5003               	movf	main@c+1,w,c
+    91  000FBA  E114               	bnz	l20
+    92  000FBC  0E15               	movlw	21
+    93  000FBE  5C02               	subwf	main@c,w,c
+    94  000FC0  B0D8               	btfsc	status,0,c
+    95  000FC2  D010               	goto	l20
+    96  000FC4  D001               	goto	l619
+    97  000FC6  D00E               	goto	l20
+    98  000FC8                     l619:
+    99  000FC8  0E0D               	movlw	13
+   100  000FCA  6E01               	movwf	??_main& (0+255),c
+   101  000FCC  0EFC               	movlw	252
+   102  000FCE                     u57:
+   103  000FCE  2EE8               	decfsz	wreg,f,c
+   104  000FD0  D7FE               	goto	u57
+   105  000FD2  2E01               	decfsz	??_main& (0+255),f,c
+   106  000FD4  D7FC               	goto	u57
+   107  000FD6  4A02               	infsnz	main@c,f,c
+   108  000FD8  2A03               	incf	main@c+1,f,c
+   109  000FDA  BE03               	btfsc	main@c+1,7,c
+   110  000FDC  D7F5               	goto	l619
+   111  000FDE  5003               	movf	main@c+1,w,c
+   112  000FE0  E101               	bnz	u30
+   113  000FE2  D7EC               	goto	L1
+   114  000FE4                     u30:
+   115  000FE4                     l20:
+   116                           
+   117                           ;main.c: 25: if(PORTCbits.RC0 == 0)
+   118  000FE4  B082               	btfsc	3970,0,c	;volatile
+   119  000FE6  D7E0               	goto	l611
+   120                           
+   121                           ;main.c: 26: {
+   122                           ;main.c: 27: LATBbits.LATB0 = 1;
+   123  000FE8  808A               	bsf	3978,0,c	;volatile
+   124                           
+   125                           ;main.c: 28: LATBbits.LATB1 = 1;
+   126  000FEA  828A               	bsf	3978,1,c	;volatile
+   127                           
+   128                           ;main.c: 29: LATCbits.LATC1 = 1;
+   129  000FEC  828B               	bsf	3979,1,c	;volatile
+   130                           
+   131                           ;main.c: 30: LATCbits.LATC2 = 1;
+   132  000FEE  848B               	bsf	3979,2,c	;volatile
+   133                           
+   134                           ;main.c: 32: }
+   135                           ;main.c: 33: }
+   136  000FF0  D7DB               	goto	l611
+   137  000FF2                     l18:
+   138                           
+   139                           ;main.c: 34: else{
+   140                           ;main.c: 35: LATBbits.LATB0 = 0;
+   141  000FF2  908A               	bcf	3978,0,c	;volatile
+   142                           
+   143                           ;main.c: 36: LATBbits.LATB1 = 0;
+   144  000FF4  928A               	bcf	3978,1,c	;volatile
+   145                           
+   146                           ;main.c: 37: LATCbits.LATC1 = 0;
+   147  000FF6  928B               	bcf	3979,1,c	;volatile
+   148                           
+   149                           ;main.c: 38: LATCbits.LATC2 = 0;
+   150  000FF8  948B               	bcf	3979,2,c	;volatile
+   151  000FFA  D7D6               	goto	l611
+   152                           
+   153                           ;main.c: 39: }
+   154                           ;main.c: 40: }
+   155                           ;main.c: 41: return;
+   156  000FFC  EF00  F000         	goto	start
+   157  001000                     __end_of_main:
+   158                           	opt stack 0
+   159  0000                     wreg	equ	0xFE8
+   160                           status	equ	0xFD8
+   161                           
+   162                           	psect	cinit
+   163  000F92                     __pcinit:
+   164                           	opt stack 0
+   165  000F92                     start_initialization:
+   166                           	opt stack 0
+   167  000F92                     __initialization:
+   168                           	opt stack 0
+   169  000F92                     end_of_initialization:
+   170                           	opt stack 0
+   171  000F92                     __end_of__initialization:
+   172                           	opt stack 0
+   173  000F92  0100               	movlb	0
+   174  000F94  EFCC  F007         	goto	_main	;jump to C main() function
+   175                           wreg	equ	0xFE8
+   176                           status	equ	0xFD8
+   177                           
+   178                           	psect	cstackCOMRAM
+   179  000001                     __pcstackCOMRAM:
+   180                           	opt stack 0
+   181  000001                     ??_main:
+   182                           
+   183                           ; 0 bytes @ 0x0
+   184  000001                     	ds	1
+   185  000002                     main@c:
+   186                           	opt stack 0
+   187                           
+   188                           ; 2 bytes @ 0x1
+   189  000002                     	ds	2
+   190                           wreg	equ	0xFE8
+   191                           status	equ	0xFD8
+   192                           wreg	equ	0xFE8
+   193                           status	equ	0xFD8
+   194                           
+   195                           	psect	rparam
+   196  0000                     wreg	equ	0xFE8
+   197                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127      3       3
+    BANK0           128      0       0
+    BANK1           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 3     3      0      30
+                                              0 COMRAM     3     3      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 0
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           7F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              7F      3       3       1        2.4%
+STACK                0      0       0       2        0.0%
+BITBANK0            80      0       0       3        0.0%
+BANK0               80      0       0       4        0.0%
+BITBANK1           100      0       0       5        0.0%
+BANK1              100      0       0       6        0.0%
+ABS                  0      0       0       7        0.0%
+BIGRAM             1FF      0       0       8        0.0%
+DATA                 0      0       0       9        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.34 build -361300703 
+Symbol Table                                                                                   Wed Dec 22 15:25:38 2021
+
+                     l20 0FE4                       l18 0FF2                       u30 0FE4  
+                     u57 0FCE             __CFG_CP0$OFF 000000             __CFG_CP1$OFF 000000  
+            __CFG_OSC$RC 000000              __CFG_LVP$ON 000000                      l611 0FA8  
+                    l619 0FC8             __CFG_CPB$OFF 000000             __CFG_CPD$OFF 000000  
+           __CFG_BOR$OFF 000000             __CFG_BORV$20 000000                      wreg 000FE8  
+           __CFG_WDT$OFF 000000             __CFG_STVR$ON 000000                     _main 0F98  
+          __CFG_PBAD$ANA 000000                     start 0000            __CFG_FSCM$OFF 000000  
+          __CFG_IESO$OFF 000000             ___param_bank 000010           __CFG_CCP2MX$ON 000000  
+                  ?_main 0001            __CFG_PWRT$OFF 000000            __CFG_WRT0$OFF 000000  
+          __CFG_WRT1$OFF 000000           __CFG_EBTR0$OFF 000000           __CFG_EBTR1$OFF 000000  
+          __CFG_WRTB$OFF 000000            __CFG_WRTC$OFF 000000            __CFG_WRTD$OFF 000000  
+         __CFG_EBTRB$OFF 000000                    main@c 0002                    status 000FD8  
+         __CFG_MCLRE$OFF 000000          __initialization 0F92             __end_of_main 1000  
+                 ??_main 0001            __activetblptr 000000                   _OSCCON 000FD3  
+             __accesstop 0080  __end_of__initialization 0F92            ___rparam_used 000001  
+         __pcstackCOMRAM 0001                  __Hparam 0000                  __Lparam 0000  
+                __pcinit 0F92                  __ramtop 0200                  __ptext0 0F98  
+   end_of_initialization 0F92                _PORTCbits 000F82                _TRISBbits 000F93  
+              _TRISCbits 000F94      start_initialization 0F92                 _LATBbits 000F8A  
+               _LATCbits 000F8B         __CFG_WDTPS$32768 000000                 __Hrparam 0000  
+               __Lrparam 0000            __size_of_main 0068  
